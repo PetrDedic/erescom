@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useToggle } from "../hooks/useToggle";
 
 const StyledNavbar = styled.div`
   width: 100%;
@@ -42,6 +45,42 @@ const StyledNavbar = styled.div`
         color: white;
       }
     }
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  .menu-button {
+    @media (min-width: 900px) {
+      display: none;
+    }
+
+    color: white;
+    fill: white;
+
+    height: 96px;
+    width: 96px;
+    align-self: center;
+
+    position: absolute;
+    left: -96px;
+    padding: 1rem;
+
+    background-color: #a1a1a1;
+
+    border-left: ${(props) => (props.open ? "1px black solid" : "none")};
+  }
+
+  .menu {
+    height: 100vh;
+    width: 50%;
+    background-color: white;
+
+    position: fixed;
+    transform: ${(props) =>
+      !props.open ? "translateX(200%)" : "translateX(100%)"};
+    transition: 250ms;
+    z-index: 999999999;
   }
 `;
 
@@ -49,9 +88,17 @@ const Navbar = () => {
   const router = useRouter();
   const currentRoute = router.pathname;
 
+  const [open, toggleOpen] = useToggle(false, [true, false]);
+
   return (
-    <StyledNavbar>
-      <Image src="/logo_color.svg" height={96} width={192} priority />
+    <StyledNavbar open={open}>
+      <Image
+        src="/logo_color.svg"
+        alt="logo"
+        height={96}
+        width={192}
+        priority
+      />
       <nav>
         <Link href="/" className={currentRoute === "/" ? "active" : ""}>
           Domů
@@ -63,8 +110,8 @@ const Navbar = () => {
           Produkty
         </Link>
         <Link
-          href="/about"
-          className={currentRoute === "/about" ? "active" : ""}
+          href="/o-nas"
+          className={currentRoute === "/o-nas" ? "active" : ""}
         >
           O nás
         </Link>
@@ -75,6 +122,14 @@ const Navbar = () => {
           Kontakt
         </Link>
       </nav>
+
+      <div className="menu">
+        <FontAwesomeIcon
+          icon={faBars}
+          className="menu-button"
+          onClick={() => toggleOpen()}
+        />
+      </div>
     </StyledNavbar>
   );
 };

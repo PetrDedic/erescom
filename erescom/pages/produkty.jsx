@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useState } from "react";
 import styled from "styled-components";
 import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
@@ -57,58 +56,34 @@ const StyledDetails = styled.div`
   overflow: auto;
 `;
 
+const Products = () => {
+  const productList = [
+    { name: "Tužková pájecí stanice SS8200", text: "dummy" },
+    { name: "Digitální pájecí stanice SS8300", text: "dummy" },
+  ];
+
+  return (
+    <StyledDetails>
+      {productList.map((product, index) => (
+        <Accordion key={index} header={product.name} text={product.text} />
+      ))}
+    </StyledDetails>
+  );
+};
+
+const Menu = () => {
+  return (
+    <StyledMenu>
+      <div className="category">Páječky</div>
+      <div className="category">Pájky</div>
+      <div className="category">ESD produkty</div>
+      <div className="category">Odsávačky</div>
+      <div className="category">Chemie</div>
+    </StyledMenu>
+  );
+};
+
 const Produkty = () => {
-  const [category, setCategory] = useState("páječky");
-
-  const Products = () => {
-    const productList = [
-      {
-        name: "Tužková pájecí stanice SS8200",
-        text: "dummy",
-        category: "páječky",
-      },
-      {
-        name: "Digitální pájecí stanice SS8300",
-        text: "dummy",
-        category: "páječky",
-      },
-      {
-        name: "Pájkaaaa",
-        text: "dummy",
-        category: "pájky",
-      },
-    ];
-
-    return (
-      <StyledDetails>
-        {productList
-          .filter((product) => product.category === category)
-          .map((product, index) => (
-            <Accordion key={index} header={product.name} text={product.text} />
-          ))}
-      </StyledDetails>
-    );
-  };
-
-  const Menu = () => {
-    return (
-      <StyledMenu>
-        <div
-          className="category páječky"
-          onClick={() => setCategory("páječky")}
-        >
-          Páječky
-        </div>
-        <div className="category pájky" onClick={() => setCategory("pájky")}>
-          Pájky
-        </div>
-        <div className="category">ESD produkty</div>
-        <div className="category">Odsávačky</div>
-        <div className="category">Chemie</div>
-      </StyledMenu>
-    );
-  };
-
   return (
     <>
       <Head>

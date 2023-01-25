@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-import { Share } from "@next/font/google";
 
 const StyledMain = styled.main`
   width: 100%;
@@ -124,7 +123,7 @@ export default function Home() {
           </div>
           <div className="links">
             <Link href="./produkty">PRODUKTY</Link>
-            <Link href="/">O NÁS</Link>
+            <Link href="/o-nas">O NÁS</Link>
             <Link href="/">KONTAKT</Link>
           </div>
           <p>Již 25 let jsme tu pro Vás!</p>
