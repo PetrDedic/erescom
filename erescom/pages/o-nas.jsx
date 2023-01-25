@@ -76,8 +76,8 @@ const About = () => {
           priority
         />
         <p>
-          Dále komplexní projekty antistatických pracovišť "na klíč" vč.
-          antistatických nátěrů a vodivých lepidel.
+          Dále komplexní projekty antistatických pracovišť &quot;na klíč&quot;
+          vč. antistatických nátěrů a vodivých lepidel.
         </p>
         <p>
           Firma byla založena v lednu roku 1991 a za celou dobu 25-ti let trvání
