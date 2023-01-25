@@ -26,7 +26,7 @@ export default function Document() {
         />
         <style>
           @import
-          url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+          url(&quot;https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap&quot;);
         </style>
       </Head>
       <body>
