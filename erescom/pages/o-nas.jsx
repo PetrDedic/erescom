@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
@@ -11,19 +12,23 @@ const StyledAbout = styled.div`
   background-size: cover;
   background-position: top;
 
-  main {
-    display: flex;
-    flex-direction: row;
-    height: calc(100% - 6rem);
-  }
-
   section {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 
     height: auto;
-    width: calc(100% - 12rem);
+    width: calc(100% - 24rem);
+    @media (max-width: 1280px) {
+      width: calc(100% - 12rem);
+    }
+    @media (max-width: 1024px) {
+      width: calc(100% - 8rem);
+    }
+    @media (max-width: 900px) {
+      width: calc(100% - 6rem);
+    }
+    max-width: 1920px;
     margin: 3rem auto;
 
     p {
@@ -35,6 +40,49 @@ const StyledAbout = styled.div`
     }
     img {
       margin: auto;
+    }
+
+    .crimson {
+      color: crimson;
+      p {
+        text-align: center;
+      }
+    }
+
+    div.what-we-do {
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 100%;
+        height: auto;
+        margin: 2rem;
+        padding: 2rem;
+
+        @media (max-width: 900px) {
+          margin: 2rem 0;
+        }
+
+        background-color: white;
+        border-radius: 2rem;
+        box-shadow: 10px 10px 54px 24px rgba(0, 0, 0, 0.29);
+
+        li {
+          margin: 0.5rem 0;
+        }
+
+        .heading {
+          font-size: 2rem;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -48,48 +96,166 @@ const StyledAbout = styled.div`
     h1 {
       color: white;
       font-size: 4rem;
+
+      @media (max-width: 900px) {
+        font-size: 3rem;
+      }
     }
   }
 `;
 
 const About = () => {
   return (
-    <StyledAbout>
-      <Navbar />
-      <div className="header">
-        <h1>O nás a o firmě</h1>
-      </div>
-      <section>
-        <p>
-          Firma <span>ERESCOM SMT v. o. s.</span> zajišťuje pro CZ a SK trh
-          dodávky a servis zařízení pro investiční elektroniku, předevąím
-          zařízení na výrobu a opravy desek PS v klasické i SMT montáži. Je
-          dodavatelem široké škály ručních pájecích i odpájecích zařízení vč.
-          cínových pájek a tavidel. Provádí zdarma projekty výrobních linek
-          technologie SMT a poradenství v oblasti pájení.
-        </p>
-        <Image
-          src="/logo_color.svg"
-          alt="logo"
-          height={96 * 2}
-          width={192 * 2}
-          priority
-        />
-        <p>
-          Dále komplexní projekty antistatických pracovišť &quot;na klíč&quot;
-          vč. antistatických nátěrů a vodivých lepidel.
-        </p>
-        <p>
-          Firma byla založena v lednu roku 1991 a za celou dobu 25-ti let trvání
-          vychovala postupně další pokračovatele v oboru své činnosti mladší
-          generace. Což chápeme jako positivum naší činnosti... <br />V současné
-          době je přes šest tisíc zákazníků s našimi službami a rychloobrátkovým
-          servisem více jak spokojeno, o čemž svědčí celá řada pochvalných
-          dopisů a telefonátů, vč. referenčního listu, kam jsme svá zařízení
-          dodali...
-        </p>
-      </section>
-    </StyledAbout>
+    <>
+      <Head>
+        <title>ERESCOM | O nás</title>
+        <meta name="description" content="Erescom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/e.svg" />
+      </Head>
+      <StyledAbout>
+        <Navbar />
+        <div className="header">
+          <h1>O nás a o firmě</h1>
+        </div>
+        <section>
+          <div>
+            <div className="what-we-do">
+              <div className="card">
+                <p className="heading">Vše pro pájení a odpájení</p>
+                <ul>
+                  <li>
+                    ruční pájecí mikropájky, mikropájky s tzv.
+                    &quot;minivlnou&quot; (DENON SS-8000, SS-8100 D, SS-8200,
+                    SS-8300 a SS-8400) PACE ST 20 E a ST 40 s displayem,
+                    DIAMETRAL SBL 530.1A s vypínací automatikou 1B
+                  </li>
+                  <li>
+                    ruční odpájecí nářadí: odsávací pistole SC 7000 Z - s
+                    profukem, horkovzduŠný pájecí a odpájecí přístroj LEISTER
+                    HOT JET S
+                  </li>
+                  <li>
+                    strojní pájení: pájecí vlny (stolní, průmyslové,
+                    laboratorní), pájení desek PS s klasickou montáží, s povrch.
+                    montáží (SMT), přetavovací pece IR reflow - KONTAKT SYSTEME,
+                    ELECTROVERT, EBSO, ESSEMTECH, SEHO, TECHNOPRINT a EPM
+                  </li>
+                  <li>
+                    pomocný pájecí materiál všeho druhu - naše i zahraniční
+                    cínové trubičkové pájky, tyče do pájecích vln, pájecí pasty,
+                    tavidla i bezoplachová, dosíerovací zařízení, chemikálie,
+                    bezolovnaté pájky
+                  </li>
+                  <li>
+                    mycí zařízení desek PS - průběžná i stacionární a
+                    ultrazvukem.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="card">
+                <p className="heading">
+                  Vše pro osazování a opravy desek plošných spojů
+                </p>
+                <ul>
+                  <li>
+                    osazovací pracoviště SMD součástek: ruční, poloautomaty,
+                    automaty svět. výrobců, IN-LINE
+                  </li>
+                  <li>
+                    opravárenská pracoviště pro opravy DPS: klasická montáž i
+                    SMT, vision systém, test. součástek
+                  </li>
+                  <li>
+                    optické přístroje: prosvětlovací lupy, stereomikroskopy
+                    (systém EICKHORST, VISION STEREO - SYSTÉMY), CCD kamery
+                  </li>
+                  <li>
+                    čištění desek DPS, spreye, lepící pásky na DPS, tekuté krycí
+                    masky
+                  </li>
+                  <li>montážní rámeček pro opravy desek LEISTER</li>
+                  <li>upínací zařízení od firmy BERNSTEIN</li>
+                </ul>
+              </div>
+            </div>
+            <div className="what-we-do">
+              <div className="card">
+                <p className="heading">Vše pro vlastní výrobu desek PS</p>
+                <ul>
+                  <li>
+                    brusky, cínovačky, fotoplotery, lisy, HAL, osvětlovací rámy,
+                    leptačky, vrtačky, stříhačky, zlatičky, atd.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="card">
+                <p className="heading">
+                  Vše pro ochranu před účinky elektrostatického pole
+                </p>
+                <ul>
+                  <li>
+                    návrh a vybavení antistatických pracovišť: ošetření stolů,
+                    podlah, ionizátory vzduchu
+                  </li>
+                  <li>
+                    dodávky antistatických náramků, obuvi, plášťů, židlí, boxů,
+                    přepravek, zásobníků
+                  </li>
+                  <li>
+                    balící a přepravní materiál: sáčky, molitany, krabičky atd.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="crimson">
+            <p>ZDARMA</p>
+            <ul>
+              <li>Servis zajištěn</li>
+              <li>Rádi přijedeme i k Vám</li>
+              <li>Vypracujeme projekty výrobních linek technologie SMT</li>
+              <li>Poradenská činnost v oblasti pájení a oprav desek PS</li>
+              <li>
+                Vykupujeme nadnormativní zásoby všech druhů olovnatých a
+                bezolovnatých Sn-pájek, drátů, trubiček, tyčí, bloků, atd. za
+                předem dohodnuté ceny
+              </li>
+            </ul>
+          </div>
+          <p>
+            Firma <span>ERESCOM SMT v. o. s.</span> zajišťuje pro CZ a SK trh
+            dodávky a servis zařízení pro investiční elektroniku, předevąím
+            zařízení na výrobu a opravy desek PS v klasické i SMT montáži. Je
+            dodavatelem široké škály ručních pájecích i odpájecích zařízení vč.
+            cínových pájek a tavidel. Provádí zdarma projekty výrobních linek
+            technologie SMT a poradenství v oblasti pájení.
+          </p>
+          <Image
+            src="/logo_color.svg"
+            alt="logo"
+            height={96 * 2}
+            width={192 * 2}
+            priority
+          />
+          <p>
+            Dále komplexní projekty antistatických pracovišť &quot;na klíč&quot;
+            vč. antistatických nátěrů a vodivých lepidel.
+          </p>
+          <p>
+            Firma byla založena v lednu roku 1991 a za celou dobu 25-ti let
+            trvání vychovala postupně další pokračovatele v oboru své činnosti
+            mladší generace. Což chápeme jako positivum naší činnosti... <br />V
+            současné době je přes šest tisíc zákazníků s našimi službami a
+            rychloobrátkovým servisem více jak spokojeno, o čemž svědčí celá
+            řada pochvalných dopisů a telefonátů, vč. referenčního listu, kam
+            jsme svá zařízení dodali...
+          </p>
+        </section>
+      </StyledAbout>
+    </>
   );
 };
 

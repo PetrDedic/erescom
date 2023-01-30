@@ -24,6 +24,7 @@ const Hero = styled.div`
     width: 100vw;
     content: "";
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    animation: breath 10s infinite;
   }
   .logo {
     width: 40vw;
@@ -90,6 +91,24 @@ const Hero = styled.div`
       bottom: 2.5vh;
     }
   }
+
+  @keyframes breath {
+    0% {
+      -webkit-box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+      -moz-box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+      box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+    }
+    50% {
+      -webkit-box-shadow: inset 10px -90px 300px -129px rgba(27, 149, 243, 0.5);
+      -moz-box-shadow: inset 10px -90px 300px -129px rgba(27, 149, 243, 0.5);
+      box-shadow: inset 10px -90px 300px -129px rgba(27, 149, 243, 0.5);
+    }
+    100% {
+      -webkit-box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+      -moz-box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+      box-shadow: inset 10px 77px 300px -129px rgba(27, 149, 243, 0.5);
+    }
+  }
 `;
 
 export default function Home() {
@@ -109,7 +128,10 @@ export default function Home() {
             priority
             alt="hero"
             sizes="100vw"
-            style={{ aspectRatio: "16 / 9", objectFit: "cover" }}
+            style={{
+              aspectRatio: "16 / 9",
+              objectFit: "cover",
+            }}
           />
           <div className="logo">
             <Image
@@ -117,7 +139,10 @@ export default function Home() {
               fill
               alt="logo"
               priority
-              style={{ zIndex: 5 }}
+              style={{
+                zIndex: 5,
+                filter: "drop-shadow(25px 25px 25px #222222)",
+              }}
               sizes="50vw"
             />
           </div>
