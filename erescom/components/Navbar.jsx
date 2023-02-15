@@ -58,12 +58,13 @@ const StyledNavbar = styled.div`
     color: white;
     fill: white;
 
-    height: 96px;
-    width: 96px;
+    height: 64px;
+    width: 64px;
     align-self: center;
 
     position: absolute;
     left: -96px;
+    top: -1px;
     padding: 1rem;
 
     background-color: #a1a1a1;
