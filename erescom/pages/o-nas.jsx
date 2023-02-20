@@ -126,112 +126,38 @@ const About = () => {
                 <ul>
                   <li>
                     ruční pájecí mikropájky, mikropájky s tzv.
-                    &quot;minivlnou&quot; (DENON SS-8000, SS-8100 D, SS-8200,
-                    SS-8300 a SS-8400) PACE ST 20 E a ST 40 s displayem,
-                    DIAMETRAL SBL 530.1A s vypínací automatikou 1B
+                    &quot;minivlnou&quot; (DENON)
                   </li>
                   <li>
                     ruční odpájecí nářadí: odsávací pistole SC 7000 Z - s
                     profukem, horkovzduŠný pájecí a odpájecí přístroj LEISTER
                     HOT JET S
                   </li>
-                  <li>
-                    strojní pájení: pájecí vlny (stolní, průmyslové,
-                    laboratorní), pájení desek PS s klasickou montáží, s povrch.
-                    montáží (SMT), přetavovací pece IR reflow - KONTAKT SYSTEME,
-                    ELECTROVERT, EBSO, ESSEMTECH, SEHO, TECHNOPRINT a EPM
-                  </li>
+
                   <li>
                     pomocný pájecí materiál všeho druhu - naše i zahraniční
                     cínové trubičkové pájky, tyče do pájecích vln, pájecí pasty,
-                    tavidla i bezoplachová, dosíerovací zařízení, chemikálie,
-                    bezolovnaté pájky
-                  </li>
-                  <li>
-                    mycí zařízení desek PS - průběžná i stacionární a
-                    ultrazvukem.
+                    tavidla i bezoplachová, chemikálie, bezolovnaté pájky
                   </li>
                 </ul>
               </div>
-
               <div className="card">
                 <p className="heading">
-                  Vše pro osazování a opravy desek plošných spojů
+                  Vše pro ochranu před elektrostatickým polem
                 </p>
                 <ul>
-                  <li>
-                    osazovací pracoviště SMD součástek: ruční, poloautomaty,
-                    automaty svět. výrobců, IN-LINE
-                  </li>
-                  <li>
-                    opravárenská pracoviště pro opravy DPS: klasická montáž i
-                    SMT, vision systém, test. součástek
-                  </li>
-                  <li>
-                    optické přístroje: prosvětlovací lupy, stereomikroskopy
-                    (systém EICKHORST, VISION STEREO - SYSTÉMY), CCD kamery
-                  </li>
-                  <li>
-                    čištění desek DPS, spreye, lepící pásky na DPS, tekuté krycí
-                    masky
-                  </li>
-                  <li>montážní rámeček pro opravy desek LEISTER</li>
-                  <li>upínací zařízení od firmy BERNSTEIN</li>
-                </ul>
-              </div>
-            </div>
-            <div className="what-we-do">
-              <div className="card">
-                <p className="heading">Vše pro vlastní výrobu desek PS</p>
-                <ul>
-                  <li>
-                    brusky, cínovačky, fotoplotery, lisy, HAL, osvětlovací rámy,
-                    leptačky, vrtačky, stříhačky, zlatičky, atd.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="card">
-                <p className="heading">
-                  Vše pro ochranu před účinky elektrostatického pole
-                </p>
-                <ul>
-                  <li>
-                    návrh a vybavení antistatických pracovišť: ošetření stolů,
-                    podlah, ionizátory vzduchu
-                  </li>
-                  <li>
-                    dodávky antistatických náramků, obuvi, plášťů, židlí, boxů,
-                    přepravek, zásobníků
-                  </li>
-                  <li>
-                    balící a přepravní materiál: sáčky, molitany, krabičky atd.
-                  </li>
+                  <li>dodávky antistatických náramků, obuvi, ...</li>
                 </ul>
               </div>
             </div>
           </div>
-          <div className="crimson">
-            <p>ZDARMA</p>
-            <ul>
-              <li>Servis zajištěn</li>
-              <li>Rádi přijedeme i k Vám</li>
-              <li>Vypracujeme projekty výrobních linek technologie SMT</li>
-              <li>Poradenská činnost v oblasti pájení a oprav desek PS</li>
-              <li>
-                Vykupujeme nadnormativní zásoby všech druhů olovnatých a
-                bezolovnatých Sn-pájek, drátů, trubiček, tyčí, bloků, atd. za
-                předem dohodnuté ceny
-              </li>
-            </ul>
-          </div>
+
           <p>
             Firma <span>ERESCOM SMT v. o. s.</span> zajišťuje pro CZ a SK trh
             dodávky a servis zařízení pro investiční elektroniku, předevąím
             zařízení na výrobu a opravy desek PS v klasické i SMT montáži. Je
             dodavatelem široké škály ručních pájecích i odpájecích zařízení vč.
-            cínových pájek a tavidel. Provádí zdarma projekty výrobních linek
-            technologie SMT a poradenství v oblasti pájení.
+            cínových pájek a tavidel.
           </p>
           <Image
             src="/logo_color.svg"
@@ -240,18 +166,12 @@ const About = () => {
             width={192 * 2}
             priority
           />
-          <p>
-            Dále komplexní projekty antistatických pracovišť &quot;na klíč&quot;
-            vč. antistatických nátěrů a vodivých lepidel.
-          </p>
+
           <p>
             Firma byla založena v lednu roku 1991 a za celou dobu 25-ti let
             trvání vychovala postupně další pokračovatele v oboru své činnosti
-            mladší generace. Což chápeme jako positivum naší činnosti... <br />V
-            současné době je přes šest tisíc zákazníků s našimi službami a
-            rychloobrátkovým servisem více jak spokojeno, o čemž svědčí celá
-            řada pochvalných dopisů a telefonátů, vč. referenčního listu, kam
-            jsme svá zařízení dodali...
+            mladší generace. Což chápeme jako positivum naší činnosti... <br />
+            Novými pokračovateli je současná firma ERESCOMCZ21 s.r.o.
           </p>
         </section>
       </StyledAbout>

@@ -8,7 +8,7 @@ config.autoAddCss = false;
 
 const StyledAccordion = styled.div`
   height: auto;
-  width: calc(100% - 6rem);
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -23,14 +23,14 @@ const StyledAccordion = styled.div`
     padding: 1rem;
     border-radius: 1rem;
 
-    background-color: #1b95f316;
+    background-color: #e0ecf4;
 
     cursor: pointer;
 
     &.true {
       border-radius: 1rem 1rem 0 0;
 
-      background-color: #1b95f340;
+      background-color: #c0dcf4;
     }
 
     .icon {
@@ -51,7 +51,7 @@ const StyledAccordion = styled.div`
       padding: 1rem;
       border-radius: 0 0 1rem 1rem;
 
-      background-color: #1b95f316;
+      background-color: #e0ecf4;
     }
   }
 `;
@@ -72,9 +72,7 @@ const Accordion = (props) => {
           <FontAwesomeIcon icon={faChevronUp} style={{ alignSelf: "center" }} />
         )}
       </div>
-      <div className={"inner " + open}>
-        <p>{props.text}</p>
-      </div>
+      <div className={"inner " + open}>{props.children}</div>
     </StyledAccordion>
   );
 };

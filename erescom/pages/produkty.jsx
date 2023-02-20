@@ -13,6 +13,22 @@ const StyledProducts = styled.div`
     display: flex;
     flex-direction: column;
     height: calc(100% - 6rem);
+
+    .container {
+      width: 100%;
+      padding: 0 10%;
+      padding-bottom: 6rem;
+      margin: 1rem auto;
+
+      background-image: url("bg.svg");
+      background-size: cover;
+      background-position: top;
+
+      img {
+        margin: 2rem auto 3rem auto;
+        height: 5rem;
+      }
+    }
   }
 `;
 
@@ -77,28 +93,7 @@ const StyledMenu = styled.div`
   }
 `;
 
-const StyledDetails = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-`;
-
 const If = ({ isTrue, children }) => (isTrue ? children : null);
-
-const Products = () => {
-  const productList = [
-    { name: "Tužková pájecí stanice SS8200", text: "dummy" },
-    { name: "Digitální pájecí stanice SS8300", text: "dummy" },
-  ];
-
-  return (
-    <StyledDetails>
-      {productList.map((product, index) => (
-        <Accordion key={index} header={product.name} text={product.text} />
-      ))}
-    </StyledDetails>
-  );
-};
 
 const Produkty = () => {
   const [category, setCategory] = useState("DEN-ON");
@@ -179,27 +174,115 @@ const Produkty = () => {
         <Navbar />
         <main>
           <Menu />
-          <If isTrue={category === "DEN-ON"}>
-            <div>DEN ON</div>
-          </If>
-          <If isTrue={category === "ALPHA"}>
-            <div>ALPHA</div>
-          </If>
-          <If isTrue={category === "STANNOL"}>
-            <div>STANNOL</div>
-          </If>
-          <If isTrue={category === "PRIBRAM"}>
-            <div>PRIBRAM</div>
-          </If>
-          <If isTrue={category === "BONDLINE"}>
-            <div>BONDLINE</div>
-          </If>
-          <If isTrue={category === "TECHSPRAY"}>
-            <div>TECHSPRAY</div>
-          </If>
-          <If isTrue={category === "NOVATIO"}>
-            <div>NOVATIO</div>
-          </If>
+          <div className="container">
+            <If isTrue={category === "DEN-ON"}>
+              <img src="./denon.png" alt="" />
+              <Accordion header="orig. odpájecí zařízení DEN-ON SC-7000Z">
+                El. pistole má trvale vyhřívaný hrot na nastavitelnou teplotu od
+                350° do 500°C.
+                <ul>
+                  <li>Napětí 220 V</li>
+                  <li>frekvence 50/60 Hz</li>
+                  <li>příkon 120 W</li>
+                  <li>podtlak 650 mmHg</li>
+                </ul>
+                Odsávání pájky, profuk, horkovzdušný režim. Odstranění čipových
+                a SMD součástek se provádí snadněji a efektivněji. Nejlepší
+                nástroj uznávaný po celém světě. Antistatické provedení.
+              </Accordion>
+              <Accordion header="tužková mikropájka DEN-ON SS-8200">
+                Kompaktní a velice lehká tužková mikropájka. Má stejný výkon
+                jako pájecí stanice. Topné tělísko 200 W a regulace teploty se
+                dosahuje pomocí kompaktní ovládací jednotky umístěné v rukojeti
+                , kabel se zapojuje přímo do zásuvky. Extrémě krátký ohřev činí
+                pájku okamžitě připravenou k pájení. Řada standardních hrotů
+                dělají z SS-8200 jednu z nejuniverzálnějších páječek na trhu.
+                <ul>
+                  <li>Teplotní rozsah 200 - 450°C</li>
+                  <li>Zaručuje dokonalost pájení.</li>
+                  Pájecí hroty:
+                  <li>81-01-01 až 81-01-11</li>
+                </ul>
+              </Accordion>
+            </If>
+            <If isTrue={category === "ALPHA"}>
+              <img
+                src="https://static.wixstatic.com/media/e58b0a_550d8aea65254438b0f65e520f1c39e3.png/v1/fill/w_390,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e58b0a_550d8aea65254438b0f65e520f1c39e3.png"
+                alt=""
+              />
+              <div>ALPHA</div>
+            </If>
+            <If isTrue={category === "STANNOL"}>
+              <img
+                src="https://www.pbt.cz/getattachment/c6085310-ab7f-4b4d-af50-d6449060757b/Stannol.aspx?width=200"
+                alt=""
+              />
+              <div>STANNOL</div>
+            </If>
+            <If isTrue={category === "PRIBRAM"}>
+              <img
+                src="https://www.kovopb.cz/wp-content/uploads/logo-kovohute.png"
+                alt=""
+              />
+              <p>
+                Měkké pájky ve formě drátů, drátů plněných tavidly, tyčí
+                bezolovnaté (ve shodě S RoHS) a olovnaté. Většina těchto pájek
+                nalézá uplatnění v elektronice a elektrotechnice, kde jsou
+                vysoké nároky na chemickou čistotu slitin.
+              </p>
+            </If>
+            <If isTrue={category === "BONDLINE"}>
+              <img
+                src="https://www.bondline.co.uk/wp-content/uploads/2019/01/logo.png"
+                alt=""
+              />
+              <ul>
+                <li>
+                  ESD náramky : prémiově vysoce antialergický nastavitelný
+                  komfortní náramek na ruku v ESD provedení - HCA10
+                  (obj.č.001641)
+                </li>
+                <li>
+                  ESD nožní pásek: prémiové uzemňovací nožní pásky, nastavitelný
+                  v ESD provedení, zapínání na suchý zip, 1MOhm - HS2 (
+                  obj.č.00164)
+                </li>
+                <li>
+                  ESD kablík : spiral. (6ft) 1Mohm kabl. 2xP10 - CCS10 (
+                  obj.č.001642)
+                </li>
+                <li>
+                  ESD kablík: spiral.(6ft) kabl. 10mm západka na jack - CCJ10
+                </li>
+                <li>
+                  ESD kartáče: komplexní řada kartáčů, které umožňují bezpečné
+                  čištění ESD citlivých sestav - KB1, 20x24x65 mm (
+                  obj.č.1610ESD)
+                </li>
+                <li>
+                  ESD obuv: antistatická obuv pro čisté prostory - různé
+                  velikosti
+                </li>
+              </ul>
+            </If>
+            <If isTrue={category === "TECHSPRAY"}>
+              <img src="./techspray.png" alt="" />
+              <p>
+                FLUX REMOVER je jemný, ale účinný čistič, který bez problémů
+                odstraní zbytky pájecích přípravků. Šetrné intenzivní čištění
+                DPS a elektronických modulů, vhodný i pro odmašťování zařízení a
+                přístrojů.
+              </p>
+            </If>
+            <If isTrue={category === "NOVATIO"}>
+              <img
+                src="https://novatio.com/img/novatio/logo-novatio.svg"
+                alt=""
+              />
+              GLASS FOAM je univerzální odmašťovací a čistící pěna, nezanechává
+              šmouhy.
+            </If>
+          </div>
         </main>
       </StyledProducts>
     </>
