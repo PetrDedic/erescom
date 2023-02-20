@@ -24,7 +24,7 @@ const Hero = styled.div`
     width: 100vw;
     content: "";
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    animation: breath 10s infinite;
+    //animation: breath 10s infinite;
   }
   .logo {
     width: 40vw;

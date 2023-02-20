@@ -2,6 +2,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
+import { useScrollContainer } from "react-indiana-drag-scroll";
+import { useState } from "react";
 
 const StyledProducts = styled.div`
   width: 100%;
@@ -43,6 +45,8 @@ const StyledMenu = styled.div`
     border-radius: 1rem;
     flex-shrink: 0;
 
+    transition: 250ms;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,6 +56,10 @@ const StyledMenu = styled.div`
     letter-spacing: 0.15rem;
 
     transition: 250ms;
+
+    &.selected {
+      background-color: gray;
+    }
 
     img {
       object-fit: contain;
@@ -75,6 +83,8 @@ const StyledDetails = styled.div`
   overflow: auto;
 `;
 
+const If = ({ isTrue, children }) => (isTrue ? children : null);
+
 const Products = () => {
   const productList = [
     { name: "Tužková pájecí stanice SS8200", text: "dummy" },
@@ -90,47 +100,73 @@ const Products = () => {
   );
 };
 
-const Menu = () => {
-  return (
-    <StyledMenu>
-      <div className="category">
-        <img src="http://denondic.co.jp/en/img/logo.png" alt="" />
-      </div>
-      <div className="category">
-        <img
-          src="https://static.wixstatic.com/media/e58b0a_550d8aea65254438b0f65e520f1c39e3.png/v1/fill/w_390,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e58b0a_550d8aea65254438b0f65e520f1c39e3.png"
-          alt=""
-        />
-      </div>
-      <div className="category">
-        <img
-          src="https://www.pbt.cz/getattachment/c6085310-ab7f-4b4d-af50-d6449060757b/Stannol.aspx?width=200"
-          alt=""
-        />
-      </div>
-      <div className="category">
-        <img
-          src="https://www.kovopb.cz/wp-content/uploads/logo-kovohute.png"
-          alt=""
-        />
-      </div>
-      <div className="category">
-        <img
-          src="https://www.bondline.co.uk/wp-content/uploads/2019/01/logo.png"
-          alt=""
-        />
-      </div>
-      <div className="category">
-        <img src="./techspray.png" alt="" />
-      </div>
-      <div className="category">
-        <img src="https://novatio.com/img/novatio/logo-novatio.svg" alt="" />
-      </div>
-    </StyledMenu>
-  );
-};
-
 const Produkty = () => {
+  const [category, setCategory] = useState("DEN-ON");
+
+  const Menu = (props) => {
+    const scrollContainer = useScrollContainer();
+    return (
+      <StyledMenu ref={scrollContainer.ref}>
+        <div
+          className={category === "DEN-ON" ? "category selected" : "category"}
+          onClick={() => setCategory("DEN-ON")}
+        >
+          <img src="./denon.png" alt="" />
+        </div>
+        <div
+          className={category === "ALPHA" ? "category selected" : "category"}
+          onClick={() => setCategory("ALPHA")}
+        >
+          <img
+            src="https://static.wixstatic.com/media/e58b0a_550d8aea65254438b0f65e520f1c39e3.png/v1/fill/w_390,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e58b0a_550d8aea65254438b0f65e520f1c39e3.png"
+            alt=""
+          />
+        </div>
+        <div
+          className={category === "STANNOL" ? "category selected" : "category"}
+          onClick={() => setCategory("STANNOL")}
+        >
+          <img
+            src="https://www.pbt.cz/getattachment/c6085310-ab7f-4b4d-af50-d6449060757b/Stannol.aspx?width=200"
+            alt=""
+          />
+        </div>
+        <div
+          className={category === "PRIBRAM" ? "category selected" : "category"}
+          onClick={() => setCategory("PRIBRAM")}
+        >
+          <img
+            src="https://www.kovopb.cz/wp-content/uploads/logo-kovohute.png"
+            alt=""
+          />
+        </div>
+        <div
+          className={category === "BONDLINE" ? "category selected" : "category"}
+          onClick={() => setCategory("BONDLINE")}
+        >
+          <img
+            src="https://www.bondline.co.uk/wp-content/uploads/2019/01/logo.png"
+            alt=""
+          />
+        </div>
+        <div
+          className={
+            category === "TECHSPRAY" ? "category selected" : "category"
+          }
+          onClick={() => setCategory("TECHSPRAY")}
+        >
+          <img src="./techspray.png" alt="" />
+        </div>
+        <div
+          className={category === "NOVATIO" ? "category selected" : "category"}
+          onClick={() => setCategory("NOVATIO")}
+        >
+          <img src="https://novatio.com/img/novatio/logo-novatio.svg" alt="" />
+        </div>
+      </StyledMenu>
+    );
+  };
+
   return (
     <>
       <Head>
@@ -139,11 +175,31 @@ const Produkty = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/e.svg" />
       </Head>
-      <StyledProducts>
+      <StyledProducts category={category} setCategory={setCategory}>
         <Navbar />
         <main>
           <Menu />
-          <Products />
+          <If isTrue={category === "DEN-ON"}>
+            <div>DEN ON</div>
+          </If>
+          <If isTrue={category === "ALPHA"}>
+            <div>ALPHA</div>
+          </If>
+          <If isTrue={category === "STANNOL"}>
+            <div>STANNOL</div>
+          </If>
+          <If isTrue={category === "PRIBRAM"}>
+            <div>PRIBRAM</div>
+          </If>
+          <If isTrue={category === "BONDLINE"}>
+            <div>BONDLINE</div>
+          </If>
+          <If isTrue={category === "TECHSPRAY"}>
+            <div>TECHSPRAY</div>
+          </If>
+          <If isTrue={category === "NOVATIO"}>
+            <div>NOVATIO</div>
+          </If>
         </main>
       </StyledProducts>
     </>
