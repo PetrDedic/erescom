@@ -26,7 +26,28 @@ const StyledProducts = styled.div`
 
       img {
         margin: 2rem auto 3rem auto;
-        height: 5rem;
+        height: 7rem;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 2rem;
+      }
+
+      .product {
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 900px) {
+          flex-direction: column;
+        }
+
+        img.example {
+          object-fit: contain;
+          margin: 1rem;
+          height: 100%;
+          max-height: 25vh;
+          max-width: 75vw;
+          border-radius: 1rem;
+        }
       }
     }
   }
@@ -34,6 +55,7 @@ const StyledProducts = styled.div`
 
 const StyledMenu = styled.div`
   height: 6rem;
+  min-height: 6rem;
   width: auto;
   min-width: 100%;
   padding: 0 2rem;
@@ -177,33 +199,41 @@ const Produkty = () => {
           <div className="container">
             <If isTrue={category === "DEN-ON"}>
               <img src="./denon.png" alt="" />
-              <Accordion header="orig. odpájecí zařízení DEN-ON SC-7000Z">
-                El. pistole má trvale vyhřívaný hrot na nastavitelnou teplotu od
-                350° do 500°C.
-                <ul>
-                  <li>Napětí 220 V</li>
-                  <li>frekvence 50/60 Hz</li>
-                  <li>příkon 120 W</li>
-                  <li>podtlak 650 mmHg</li>
-                </ul>
-                Odsávání pájky, profuk, horkovzdušný režim. Odstranění čipových
-                a SMD součástek se provádí snadněji a efektivněji. Nejlepší
-                nástroj uznávaný po celém světě. Antistatické provedení.
-              </Accordion>
-              <Accordion header="tužková mikropájka DEN-ON SS-8200">
-                Kompaktní a velice lehká tužková mikropájka. Má stejný výkon
-                jako pájecí stanice. Topné tělísko 200 W a regulace teploty se
-                dosahuje pomocí kompaktní ovládací jednotky umístěné v rukojeti
-                , kabel se zapojuje přímo do zásuvky. Extrémě krátký ohřev činí
-                pájku okamžitě připravenou k pájení. Řada standardních hrotů
-                dělají z SS-8200 jednu z nejuniverzálnějších páječek na trhu.
-                <ul>
-                  <li>Teplotní rozsah 200 - 450°C</li>
-                  <li>Zaručuje dokonalost pájení.</li>
-                  Pájecí hroty:
-                  <li>81-01-01 až 81-01-11</li>
-                </ul>
-              </Accordion>
+              <div className="product">
+                <img src="./sc-7000z.jpg" alt="" className="example" />
+                <Accordion header="orig. odpájecí zařízení DEN-ON SC-7000Z">
+                  El. pistole má trvale vyhřívaný hrot na nastavitelnou teplotu
+                  od 350° do 500°C.
+                  <ul>
+                    <li>Napětí 220 V</li>
+                    <li>frekvence 50/60 Hz</li>
+                    <li>příkon 120 W</li>
+                    <li>podtlak 650 mmHg</li>
+                  </ul>
+                  Odsávání pájky, profuk, horkovzdušný režim. Odstranění
+                  čipových a SMD součástek se provádí snadněji a efektivněji.
+                  Nejlepší nástroj uznávaný po celém světě. Antistatické
+                  provedení.
+                </Accordion>
+              </div>
+              <div className="product">
+                <Accordion header="tužková mikropájka DEN-ON SS-8200">
+                  Kompaktní a velice lehká tužková mikropájka. Má stejný výkon
+                  jako pájecí stanice. Topné tělísko 200 W a regulace teploty se
+                  dosahuje pomocí kompaktní ovládací jednotky umístěné v
+                  rukojeti , kabel se zapojuje přímo do zásuvky. Extrémě krátký
+                  ohřev činí pájku okamžitě připravenou k pájení. Řada
+                  standardních hrotů dělají z SS-8200 jednu z
+                  nejuniverzálnějších páječek na trhu.
+                  <ul>
+                    <li>Teplotní rozsah 200 - 450°C</li>
+                    <li>Zaručuje dokonalost pájení.</li>
+                    Pájecí hroty:
+                    <li>81-01-01 až 81-01-11</li>
+                  </ul>
+                </Accordion>
+                <img src="./img_ss8200_01.jpg" alt="" className="example" />
+              </div>
             </If>
             <If isTrue={category === "ALPHA"}>
               <img

@@ -57,20 +57,12 @@ const StyledAccordion = styled.div`
 `;
 
 const Accordion = (props) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <StyledAccordion className={"icon " + open} open={open}>
       <div className={"outer " + open} onClick={() => setOpen(!open)}>
         <h3>{props.header}</h3>
-        {!open ? (
-          <FontAwesomeIcon
-            icon={faChevronDown}
-            style={{ alignSelf: "center" }}
-          />
-        ) : (
-          <FontAwesomeIcon icon={faChevronUp} style={{ alignSelf: "center" }} />
-        )}
       </div>
       <div className={"inner " + open}>{props.children}</div>
     </StyledAccordion>
