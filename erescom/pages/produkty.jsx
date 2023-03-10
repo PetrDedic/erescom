@@ -31,10 +31,39 @@ const StyledProducts = styled.div`
         background-color: white;
         border-radius: 2rem;
       }
+      p {
+        font-size: 1.25rem;
+      }
 
       .product {
         display: flex;
         flex-direction: row;
+
+        &.pic {
+          flex-direction: column;
+          gap: 0;
+
+          * {
+            margin: 0 !important;
+            max-width: 100% !important;
+          }
+          img {
+            border-radius: 1rem 1rem 0 0 !important;
+          }
+          div.outer {
+            border-radius: 0 0 0rem !important;
+          }
+        }
+
+        &.images {
+          justify-content: space-evenly;
+          gap: 2rem;
+          margin: 2rem 0;
+
+          @media (max-width: 900px) {
+            flex-direction: column;
+          }
+        }
 
         @media (max-width: 900px) {
           flex-direction: column;
@@ -199,40 +228,61 @@ const Produkty = () => {
           <div className="container">
             <If isTrue={category === "DEN-ON"}>
               <img src="./denon.png" alt="" />
-              <div className="product">
-                <img src="./sc-7000z.jpg" alt="" className="example" />
-                <Accordion header="orig. odpájecí zařízení DEN-ON SC-7000Z">
-                  El. pistole má trvale vyhřívaný hrot na nastavitelnou teplotu
-                  od 350° do 500°C.
-                  <ul>
-                    <li>Napětí 220 V</li>
-                    <li>frekvence 50/60 Hz</li>
-                    <li>příkon 120 W</li>
-                    <li>podtlak 650 mmHg</li>
-                  </ul>
-                  Odsávání pájky, profuk, horkovzdušný režim. Odstranění
-                  čipových a SMD součástek se provádí snadněji a efektivněji.
-                  Nejlepší nástroj uznávaný po celém světě. Antistatické
-                  provedení.
-                </Accordion>
-              </div>
-              <div className="product">
-                <Accordion header="tužková mikropájka DEN-ON SS-8200">
-                  Kompaktní a velice lehká tužková mikropájka. Má stejný výkon
-                  jako pájecí stanice. Topné tělísko 200 W a regulace teploty se
-                  dosahuje pomocí kompaktní ovládací jednotky umístěné v
-                  rukojeti , kabel se zapojuje přímo do zásuvky. Extrémě krátký
-                  ohřev činí pájku okamžitě připravenou k pájení. Řada
-                  standardních hrotů dělají z SS-8200 jednu z
-                  nejuniverzálnějších páječek na trhu.
-                  <ul>
-                    <li>Teplotní rozsah 200 - 450°C</li>
-                    <li>Zaručuje dokonalost pájení.</li>
-                    Pájecí hroty:
-                    <li>81-01-01 až 81-01-11</li>
-                  </ul>
-                </Accordion>
-                <img src="./img_ss8200_01.jpg" alt="" className="example" />
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./sc-7000z.jpg" alt="" className="example" />
+                  <Accordion header="orig. odpájecí zařízení DEN-ON SC-7000Z">
+                    El. pistole má trvale vyhřívaný hrot na nastavitelnou
+                    teplotu od 350° do 500°C.
+                    <br />
+                    <ul>
+                      <li>Napětí 220 V</li>
+                      <li>frekvence 50/60 Hz</li>
+                      <li>příkon 120 W</li>
+                      <li>podtlak 650 mmHg</li>
+                    </ul>
+                    <br />
+                    Odsávání pájky, profuk, horkovzdušný režim. Odstranění
+                    čipových a SMD součástek se provádí snadněji a efektivněji.
+                    Nejlepší nástroj uznávaný po celém světě. Antistatické
+                    provedení.
+                    <br />
+                    <br />
+                    <ul>
+                      Odpájecí hroty
+                      <li>4SCSTD - @ 1.0 mm</li>
+                      <li>4SC000A - @ 0.8 mm</li>
+                      <li>4SC000B - @ 1.5 mm</li>
+                      <li>4SC000C - @ 0.8 mm , jemný</li>
+                      <li>4SC000D - @ 0.8 mm , velmi jemný</li>
+                      <li>4SC000E - @ 1. 0 mm , jemný</li>
+                      <li>4SC000F - @ 1.5 mm , jemný</li>
+                      <li>4ST800 - stojánek k SC-7000Z</li>
+                    </ul>
+                    <br />
+                    <p>
+                      Zajišťujeme záruční i pozáruční profesionální SERVIS !!!
+                    </p>
+                  </Accordion>
+                </div>
+                <div className="product pic">
+                  <img src="./img_ss8200_01.jpg" alt="" className="example" />
+                  <Accordion header="tužková mikropájka DEN-ON SS-8200">
+                    Kompaktní a velice lehká tužková mikropájka. Má stejný výkon
+                    jako pájecí stanice. Topné tělísko 200 W a regulace teploty
+                    se dosahuje pomocí kompaktní ovládací jednotky umístěné v
+                    rukojeti , kabel se zapojuje přímo do zásuvky. Extrémě
+                    krátký ohřev činí pájku okamžitě připravenou k pájení. Řada
+                    standardních hrotů dělají z SS-8200 jednu z
+                    nejuniverzálnějších páječek na trhu.
+                    <ul>
+                      <li>Teplotní rozsah 200 - 450°C</li>
+                      <li>Zaručuje dokonalost pájení.</li>
+                      Pájecí hroty:
+                      <li>81-01-01 až 81-01-11</li>
+                    </ul>
+                  </Accordion>
+                </div>
               </div>
             </If>
             <If isTrue={category === "ALPHA"}>
@@ -240,14 +290,29 @@ const Produkty = () => {
                 src="https://static.wixstatic.com/media/e58b0a_550d8aea65254438b0f65e520f1c39e3.png/v1/fill/w_390,h_196,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e58b0a_550d8aea65254438b0f65e520f1c39e3.png"
                 alt=""
               />
-              <div>ALPHA</div>
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./alpha.png" alt="" className="example" />
+                  <Accordion>
+                    Pájky, cíny - trubičkové, bez tavidla, tyče, tavidla
+                  </Accordion>
+                </div>
+              </div>
             </If>
             <If isTrue={category === "STANNOL"}>
               <img
                 src="https://www.pbt.cz/getattachment/c6085310-ab7f-4b4d-af50-d6449060757b/Stannol.aspx?width=200"
                 alt=""
               />
-              <div>STANNOL</div>
+
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./stan.png" alt="" className="example" />
+                  <Accordion>
+                    Pájky, cíny - trubičkové, bez tavidla, tyče, tavidla, IPA
+                  </Accordion>
+                </div>
+              </div>
             </If>
             <If isTrue={category === "PRIBRAM"}>
               <img
@@ -255,17 +320,62 @@ const Produkty = () => {
                 alt=""
               />
               <p>
-                Měkké pájky ve formě drátů, drátů plněných tavidly, tyčí
-                bezolovnaté (ve shodě S RoHS) a olovnaté. Většina těchto pájek
-                nalézá uplatnění v elektronice a elektrotechnice, kde jsou
-                vysoké nároky na chemickou čistotu slitin.
+                Dlouholeté zkušenosti a moderní technologické zázemí umožňují
+                firmě KH Příbram vyrábět pájky odpovídající nejpřísnějším
+                evropským normám, splňující nezbytné požadavky nařízení
+                Evropského parlamentu a Rady (ES) č. 1907/2006 ("REACH").
               </p>
+              <br />
+              <p>
+                KH Příbram jsou kvalitním českým výrobcem, tradičním a
+                spolehlivým dodavatelem výrobků a slitin na bázi olova, cínu a
+                drahých kovů. Hutnická tradice výroby olova a stříbra na
+                Příbramsku sahá do dávné minulosti, až v 19. století, kdy
+                příbramské stříbrorudné dolování a hutnictví dosáhlo evropského
+                až světového významu.
+              </p>
+              <br />
+              <p>
+                V roce 2021 je na stávajícím místě 235 let Kovohutí Příbram.
+              </p>
+              <br />
+              <ul>
+                <li>Trubičkové pájky - Tuzemsko L/F</li>
+                <li>Tavidla</li>
+                <li>Tyčové pájky pro strojní pájení</li>
+                <li>Dezoxidační přísada do pájecích lázní</li>
+                <li>Pájky pro elektroniku a elektrotechniku</li>
+                <li>Tavidla</li>
+                <li>Tyčové pájky pro strojní pájení</li>
+                <li>Pájka na hliník</li>
+                <li>Dezoxidační přísada do pájecích lázní</li>
+                <li>Tyčové pájky lité</li>
+              </ul>
             </If>
             <If isTrue={category === "BONDLINE"}>
               <img
                 src="https://www.bondline.co.uk/wp-content/uploads/2019/01/logo.png"
                 alt=""
               />
+              <p>
+                Bondline Electronics je vysoce kvalitním předním britským
+                výrobcem a dodavatelem produktů Static Control v rámci odvětví
+                ESD. Bondline dodává do elektronického průmyslu již od roku
+                1986, tím dohromady má dlouholeté znalosti v oblasti statické
+                kontroly s řadou antistatických produktů, produktů ESD a
+                produktů pro kontrolu statické elektřiny.
+              </p>
+              <p>
+                Praktická sada vodivých kartáčů, skvělá pro čištění součástí
+                všech velikostí citlivých na statickou elektřinu. Sada ESD
+                štětců, vhodné pro mnoho aplikací a víceúčelové použití, ať už
+                potřebujete vyčistit mikroelektroniku nebo větší desky plošných
+                spojů. Antistatické produkty lze používat na EPA pracovištích, v
+                laboratořích a čistých prostorech (clean rooms) při práci s
+                elektrostatickým nábojem.
+                <br />
+                <br />
+              </p>
               <ul>
                 <li>
                   ESD náramky : prémiově vysoce antialergický nastavitelný
@@ -294,23 +404,62 @@ const Produkty = () => {
                   velikosti
                 </li>
               </ul>
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./esd1.png" alt="" className="example" />
+                  <Accordion header="ESD náramky">
+                    Prémiově vysoce antialergický nastavitelný komfortní náramek
+                    na ruku v ESD provedení - HCA10 (obj.č.001641)
+                  </Accordion>
+                </div>
+                <div className="product pic">
+                  <img src="./esd2.png" alt="" className="example" />
+                  <Accordion header="ESD kartáče">
+                    Komplexní řada kartáčů, které umožňují bezpečné čištění ESD
+                    citlivých sestav - KB1, 20x24x65 mm ( obj.č.1610ESD)
+                  </Accordion>
+                </div>
+                <div className="product pic">
+                  <img src="./esd3.png" alt="" className="example" />
+                  <Accordion header="ESD obuv">
+                    Antistatická obuv pro čisté prostory - různé velikosti Je to
+                    jenom zlomek produktů firmy:
+                  </Accordion>
+                </div>
+              </div>
             </If>
             <If isTrue={category === "TECHSPRAY"}>
               <img src="./techspray.png" alt="" />
               <p>
-                FLUX REMOVER je jemný, ale účinný čistič, který bez problémů
-                odstraní zbytky pájecích přípravků. Šetrné intenzivní čištění
-                DPS a elektronických modulů, vhodný i pro odmašťování zařízení a
-                přístrojů.
+                TechSpray je výrobce nátěrů, technických sprejů, čistících
+                prostředků a dalších nejrůznějších chemikálií.
               </p>
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./flux.png" alt="" className="example" />
+                  <Accordion header="FLUX REMOVER">
+                    FLUX REMOVER je jemný, ale účinný čistič, který bez problémů
+                    odstraní zbytky pájecích přípravků. Šetrné intenzivní
+                    čištění DPS a elektronických modulů, vhodný i pro
+                    odmašťování zařízení a přístrojů.
+                  </Accordion>
+                </div>
+              </div>
             </If>
             <If isTrue={category === "NOVATIO"}>
               <img
                 src="https://novatio.com/img/novatio/logo-novatio.svg"
                 alt=""
               />
-              GLASS FOAM je univerzální odmašťovací a čistící pěna, nezanechává
-              šmouhy.
+              <div className="product images">
+                <div className="product pic">
+                  <img src="./nova.png" alt="" className="example" />
+                  <Accordion header="FLUX REMOVER">
+                    GLASS FOAM je univerzální odmašťovací a čistící pěna,
+                    nezanechává šmouhy.
+                  </Accordion>
+                </div>
+              </div>
             </If>
           </div>
         </main>

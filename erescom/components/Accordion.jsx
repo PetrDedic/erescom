@@ -41,7 +41,6 @@ const StyledAccordion = styled.div`
   .inner {
     transition: 250ms;
     overflow: hidden;
-    max-height: ${(props) => (!props.open ? "0px" : "50vh")};
 
     li {
       margin: 0.5rem 0;
@@ -61,7 +60,7 @@ const Accordion = (props) => {
 
   return (
     <StyledAccordion className={"icon " + open} open={open}>
-      <div className={"outer " + open} onClick={() => setOpen(!open)}>
+      <div className={"outer " + open}>
         <h3>{props.header}</h3>
       </div>
       <div className={"inner " + open}>{props.children}</div>
