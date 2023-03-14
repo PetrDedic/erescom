@@ -323,7 +323,8 @@ const Produkty = () => {
                 Dlouholeté zkušenosti a moderní technologické zázemí umožňují
                 firmě KH Příbram vyrábět pájky odpovídající nejpřísnějším
                 evropským normám, splňující nezbytné požadavky nařízení
-                Evropského parlamentu a Rady (ES) č. 1907/2006 ("REACH").
+                Evropského parlamentu a Rady (ES) č. 1907/2006
+                (&quot;REACH&quot;).
               </p>
               <br />
               <p>
